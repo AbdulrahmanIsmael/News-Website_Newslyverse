@@ -1,0 +1,72 @@
+@import './mixins';
+
+.mainHeader {
+  width: 100%;
+  &__utility {
+    width: 100%;
+    padding: 2em 5em;
+    @include flex(initial, center, space-between);
+    left: 0;
+    top: 0;
+    background-color: #eee;
+    border-bottom: 1px solid #00171f;
+    &__date {
+      font-size: 2.2rem;
+    }
+
+    &__time {
+      color: #003459;
+      font-size: 2.2rem;
+    }
+  }
+
+  &__navBar {
+    padding: 7em 5em;
+    @include flex(initial, center, space-around);
+    gap: 3em;
+    background-color: #fff;
+    box-shadow: 0 3px 10px #333;
+    h1 {
+      a {
+        font-size: 4rem;
+        color: #003459;
+      }
+    }
+
+    ul {
+      @include flex(initial, center, initial);
+      gap: 30em;
+
+      @media (width <= 615px) {
+        gap: 40em;
+      }
+      li {
+        a {
+          position: relative;
+          font-size: 2.5rem;
+          &::before {
+            content: '';
+            position: absolute;
+            transition: 0.15s ease;
+            bottom: -30%;
+            translate: 50% 0;
+            width: 0%;
+            height: 4.655%;
+            background-color: #003459;
+          }
+          &.active {
+            &::before {
+              width: 50%;
+            }
+          }
+
+          &:hover {
+            &::before {
+              width: 50%;
+            }
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,55 @@
+@import './mixins';
+
+.mainFooter {
+  @include flex(column, center, center);
+  background-image: linear-gradient(45deg, #fff, #999);
+  .mainFooter__links {
+    padding: 10em 5em;
+    table {
+      tr {
+        th {
+          color: #003459;
+          font-size: 2.8rem;
+          position: relative;
+          padding-bottom: 0.5em;
+        }
+        td {
+          text-align: center;
+          a {
+            transition: 0.1s linear;
+            text-decoration: underline;
+            margin-inline: 5em;
+            font-size: 2rem;
+            color: #00171f;
+
+            @media (width <= 540px) {
+              margin-inline: 3em;
+            }
+
+            @media (width <= 400px) {
+              margin-inline: 2em;
+            }
+
+            &:hover {
+              color: #003459;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .mainFooter__copyright {
+    background-color: #003459;
+    width: 100%;
+    @include centeralize;
+    padding: 4em;
+    p {
+      font-size: 2rem;
+      color: #fff;
+      strong {
+        font-size: 1.8rem;
+      }
+    }
+  }
+}

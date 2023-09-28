@@ -1,0 +1,63 @@
+include ../include/pug/headerOfSections.pug
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="Newslyverse", content="This is where you can know what is happening in the world")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="keywords", content="news, world news, breaking news")
+    link(rel="shortcut icon", href="./assets/images/world.svg", type="image/svg")
+    link(type="text/css", rel="stylesheet", href="./css/home.css")
+    script(src="https://kit.fontawesome.com/43ff5cbbab.js", crossorigin="anonymous")
+    script(src="https://cdn.lordicon.com/bhenfmcm.js")
+    script(type="text/javascript", src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js")
+    title Newslyverse
+  body
+    include ../include/pug/header.pug
+    main.mainContent
+      section.mainContent__showcase
+        .mainContent__showcase__mainCard
+        .mainContent__showcase__subCards
+      section.mainContent__news
+        +headerSection('News')
+        .mainContent__news__tags
+          div.selected(data-sort="nation") nation
+          div(data-sort="business") business
+          div(data-sort="entertainment") entertainment
+          div(data-sort="health") health
+          div(data-sort="science") science
+          div(data-sort="sports") sports
+          div(data-sort="technology") technology
+        .mainContent__news__content
+          section.mainContent__news__content__newsList
+          aside.mainContent__news__content__sideList
+            h2 See more
+            ul
+      section.mainContent__findUs
+        +headerSection('Find Us')
+        .mainContent__findUs__contact
+          form.mainContent__findUs__contact__form(name="contact")
+            fieldset
+              legend Subscribe
+              div#inputs
+                div
+                  label(for="name") Name
+                  input(type="text", name="name", id="name", placeholder="Name")
+                div
+                  label(for="email") Email
+                  input(type="email", name="email", id="email", placeholder="Email")
+                div#sub-success #[lord-icon(src="https://cdn.lordicon.com/dnmvmpfk.json", trigger="loop", delay="2000", colors="primary:green", style="width:30px;height:30px")] #[span Successfully Subscriped]
+                div#sub-failed #[lord-icon(src="https://cdn.lordicon.com/bmnlikjh.json", trigger="loop", delay="2000", colors="primary:red", style="width:30px;height:30px")] #[span Something went wrong!]
+                button(type="submit") Subscribe
+          .mainContent__findUs__contact__socials
+            #facebook
+              i(class="fa-brands fa-square-facebook")
+              span @Newslyverse
+            #twitter
+              i(class="fa-brands fa-square-twitter")
+              span @newslyverse
+            #instagram
+              i(class="fa-brands fa-square-instagram")
+              span @newslyverse_official
+    include  ../include/pug/footer.pug
+    script(type="module", src="./js/home.js")

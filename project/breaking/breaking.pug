@@ -1,0 +1,17 @@
+doctype html
+html(lang="en")
+  head
+    meta(charset="UTF-8")
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    meta(name="Breaking News", content="This page contains some of the recent breaking news")
+    link(rel="shortcut icon", href="./assets/images/world.svg", type="image/svg")
+    link(rel="stylesheet", href="./css/breaking.css")
+    title Newslyverse | Breaking News
+  body
+    include ../include/pug/header.pug
+    main.breaking
+      header.breaking__heading
+        h2 Breaking News
+      section.breaking__news
+    include  ../include/pug/footer.pug
+    script(type='module', src="./js/breaking.js")

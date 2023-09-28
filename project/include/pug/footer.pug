@@ -1,0 +1,25 @@
+//- Start JavaScript Code
+- var currentYear = new Date().getFullYear();
+//- End JavaScript Code
+//- Start Pug Code
+footer.mainFooter
+  div.mainFooter__links
+    table(cellspacing="20px", cellpadding="20px")
+      tr
+        th Social Media
+        th Other News
+        th More
+      tr
+        td #[a(href="www.facebook.com") Facebook]
+        td #[a(href="./home.html") World]
+        td #[a(href="./home.html") About]
+      tr
+        td #[a(href="www.instagram.com") Instagram]
+        td #[a(href="./home.html") Cinema]
+        td #[a(href="./home.html") Help]
+      tr
+        td #[a(href="www.x.com") Twitter]
+        td #[a(href="./home.html") NBA]
+  div.mainFooter__copyright
+    p Copyright #[strong #{currentYear}], By Abdulrahman Mohammed Ismael
+//- End Pug Code

@@ -1,0 +1,20 @@
+//- Start JavaScript Code
+- var newDate = new Date();
+- var time = `${String(newDate.getHours()).length === 1 ? `0${newDate.getHours()}`:newDate.getHours()}:${String(newDate.getMinutes()).length === 1 ? `0${newDate.getMinutes()}` : newDate.getMinutes()}`;
+- var date = `${newDate.getFullYear()}-${newDate.getDate()}-${newDate.getMonth() + 1}`
+//- End JavaScript Code
+//- Start Pug Code
+header.mainHeader
+  //- utility bar
+  div.mainHeader__utility
+    div.mainHeader__utility__date #{date}
+    div.mainHeader__utility__time #{time}
+  //- nav bar
+  nav.mainHeader__navBar
+    h1 #[a(href="./home.html") Newslyverse]
+    ul
+      li #[a(href='./home.html', data-page='home') Home]
+      li #[a(href='./breaking.html', data-page='breaking') Breaking]
+      li #[a(href='./home.html', data-page='help') Help]
+      li #[a(href='./home.html', data-page='about') About]
+//- End Pug Code

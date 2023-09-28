@@ -1,0 +1,68 @@
+@import '../include/sass/general';
+@import '../include/sass/header';
+@import '../include/sass/footer';
+
+.breaking {
+  padding: 0 5em 20em;
+  &__heading {
+    width: 100vw;
+    margin-left: 50%;
+    transform: translateX(-50%);
+    margin-bottom: 20em;
+    padding: 10em;
+    background-image: linear-gradient(45deg, red, black);
+    h2 {
+      font-size: 4.5rem;
+      color: #ffffff;
+    }
+  }
+
+  &__news {
+    @include flex(column, start, center);
+    gap: 20em;
+    > div {
+      width: 100%;
+      display: grid;
+      grid-template-columns: 300px 1fr;
+      gap: 20em;
+      place-items: center start;
+      padding-right: 20em;
+      border: 1px solid #333;
+      box-shadow: 0 0 4px #333;
+      img {
+        max-width: 100%;
+        border-top-right-radius: 50px;
+        border-bottom-right-radius: 50px;
+      }
+
+      div {
+        @include flex(column, start, center);
+        gap: 20em;
+        h3 {
+          width: 100%;
+          font-size: 2.3rem;
+
+          span {
+            font-size: 0.8em;
+            color: red;
+            animation: breakingColor 0.75s ease-in 0.15s infinite alternate both;
+          }
+        }
+
+        p {
+          font-size: 1.6rem;
+        }
+      }
+    }
+  }
+}
+
+@keyframes breakingColor {
+  0% {
+    color: red;
+  }
+
+  100% {
+    color: black;
+  }
+}
