@@ -2,43 +2,36 @@ const gulp = require('gulp');
 const pug = require('gulp-pug');
 const sass = require('gulp-sass')(require('sass'));
 const autoprefixer = require('gulp-autoprefixer');
-const rename = require('gulp-rename');
 
 gulp.task('html', () => {
-  return gulp
-    .src(['project/*/*.pug', '!project/include'])
-    .pipe(pug())
-    .pipe(rename({ dirname: '' }))
-    .pipe(gulp.dest('./dist'));
+  return gulp.src('src/pug/*.pug').pipe(pug()).pipe(gulp.dest('./dist'));
 });
 
 gulp.task('css', () => {
   return gulp
-    .src(['project/*/*.scss', '!project/include'])
+    .src('src/sass/*.scss')
     .pipe(sass({ outputStyle: 'compressed' }))
     .pipe(autoprefixer('last 2 versions'))
-    .pipe(rename({ dirname: '' }))
     .pipe(gulp.dest('./dist/css'));
 });
 
 gulp.task('js', () => {
-  return gulp
-    .src('project/*/*.js')
-    .pipe(rename({ dirname: '' }))
-    .pipe(gulp.dest('dist/js'));
+  return gulp.src('src/js/*.js').pipe(gulp.dest('dist/js'));
 });
 
-gulp.task('data', () => {
-  return gulp.src('./project/data/data.json').pipe(gulp.dest('./dist/data'));
+gulp.task('import', () => {
+  return gulp.src('src/js/import/*.js').pipe(gulp.dest('dist/js/import'));
 });
 
 gulp.task('assets', () => {
-  return gulp.src('./project/assets/*/*.*').pipe(gulp.dest('./dist/assets'));
+  return gulp.src('./src/assets/**/*.*').pipe(gulp.dest('./dist/assets'));
 });
 
-gulp.task('default', () => {
+gulp.task('default', gulp.parallel('html', 'css', 'js', 'import', 'assets'));
+
+gulp.task('watch', () => {
   gulp.watch(
-    './project/**/*.*',
-    gulp.series('html', 'css', 'js', 'assets', 'data')
+    './src/**/*.*',
+    gulp.series('html', 'css', 'js', 'import', 'assets')
   );
 });

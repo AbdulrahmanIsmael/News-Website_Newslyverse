@@ -1,5 +1,5 @@
-import { setActiveNavLinks } from './HEADER.js';
-import { filterData } from './methods.js';
+import { setActiveNavLinks } from './import/HEADER.js';
+import { filterData } from './import/methods.js';
 
 function immediatelyActions() {
   document.addEventListener('DOMContentLoaded', () => {
