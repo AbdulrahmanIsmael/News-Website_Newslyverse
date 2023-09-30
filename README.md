@@ -6,6 +6,7 @@
 
 - **Home Page:** Displays top headlines from various categories.
 - **Breaking News Page:** Shows the latest articles from the last few hours.
+- **Website Subscription:** Subscribe to the website, and it will automatically email you.
 - **Responsive Design:** Works seamlessly on all devices.
 - **Optimized Data Fetching**: For seamless and efficient user experience.
 
@@ -24,6 +25,11 @@ Newslyverse utilizes:
 1. **About and Help Pages:** Planned for user information and support.
 2. **Expand Backend API:** To include more news sources.
 3. **Category-Specific Pages:** Individual pages for news categories.
+
+## Screenshots
+
+![home page](./screenshots/1.png)
+![breaking page](./screenshots/2.png)
 
 ---
 
